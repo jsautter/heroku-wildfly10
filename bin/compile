@@ -46,7 +46,7 @@ if [ -f $BUILD_DIR/Procfile ]; then
   mv $BUILD_DIR/Procfile $BUILD_DIR/OldProcfile
 fi
   cat << EOF > $BUILD_DIR/Procfile
-web: \$JBOSS_HOME/bin/standalone.sh -b=0.0.0.0 -Djboss.http.port=\$PORT -c standalone-full.xml
+web: \$JBOSS_HOME/bin/standalone.sh -b=0.0.0.0 -Djboss.http.port=\$PORT -Djava.util.logging.manager=org.jboss.logmanager.LogManager -c standalone-full.xml
 EOF
 
 cat << EOF > $BUILD_DIR/.profile.d/jboss.sh
